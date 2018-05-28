@@ -70,7 +70,7 @@ class SX1276():
 		self.reset()
 		self.version = self.SPIRead(self.REG_VERSION,1)[0]
 		if self.version!=0x12:
-			print 'version error',self.version
+			print ('version error',self.version)
 		self.sleep()
 		self.setFrequency(self.frequency)
 		
@@ -326,6 +326,6 @@ if __name__ == "__main__":
 		elif mode==RX:
 			packet_size = lora.parsePacket()
 			if packet_size:
-				print 'data',lora.readAll()
+				print ('data',lora.readAll()) 
 				print ('Rssi',lora.packetRssi(),lora.packetSnr())
 
